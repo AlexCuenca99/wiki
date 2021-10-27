@@ -1,0 +1,26 @@
+<!-- prettier-ignore -->
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} 
+Encyclopedia
+{%endblock %} 
+
+{% block body %}
+
+<h1>Matches for {{query}}</h1>
+
+<ul>
+	{% if matches|length == 1 %}
+	<p>Found {{ matches|length }} result</p>
+	<hr />
+	{% elif matches|length > 1 %}
+	<li>Found {{ matches|length }} matches</li>
+	<hr />
+	{% endif %} {% for match in matches %}
+	<li><a href="{% url 'topic' match %}">{{ match }}</a></li>
+	{% empty %}
+	<li>No matches</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}

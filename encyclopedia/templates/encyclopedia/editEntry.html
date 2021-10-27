@@ -1,0 +1,27 @@
+<!-- prettier-ignore -->
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} 
+Encyclopedia | Editing {{title}}
+{%endblock %} 
+
+{% block sectionTitle%} 
+Editing {{title}} Wiki
+{% endblock %} 
+
+{% block sectionSubtitle %} 
+Please, put a title and content in Markdown format. Then click on Save Entry
+{% endblock %} 
+
+{% block body %}
+
+<form action="{% url 'submitEditEntry' title %}" method="post">
+	{%csrf_token%}{{form}}
+	<br />
+	<br />
+	<button class="btn btn-primary btn-sm px-3">
+		<i id="buttonIcon" class="icon ion-md-create"></i>Save changes
+	</button>
+</form>
+
+{%endblock %}

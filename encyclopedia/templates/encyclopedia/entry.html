@@ -1,0 +1,17 @@
+<!-- prettier-ignore -->
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %} 
+Encyclopedia | {{title}}
+{%endblock%}
+
+{% block body %}
+<div class="text-dark">{{content|safe}}</div>
+
+<a class="btn btn-primary btn-sm px-3" href="{% url 'editEntry' title %}">
+	<i id="buttonIcon" class="icon ion-md-create"></i>
+
+	Edit
+</a>
+
+{% endblock %}

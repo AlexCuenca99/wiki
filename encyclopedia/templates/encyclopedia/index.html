@@ -1,0 +1,26 @@
+<!-- prettier-ignore -->
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} 
+Encyclopedia | Entries
+{% endblock %} 
+
+{% block sectionTitle%} 
+All Pages 
+{% endblock %} 
+
+{% block sectionSubtitle %} 
+All entries in the Wiki 
+{% endblock %} 
+
+{% block body %}
+
+<ul class="list-group list-group-flush">
+	{% for entry in entries %}
+	<li class="list-group-item">
+		<a href="{% url 'topic' entry %}">{{ entry }}</a>
+	</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}
